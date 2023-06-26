@@ -8,7 +8,20 @@
   </head>
 
   <body>
-    <section>
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <img src="" alt="" />
+        <h2>Bienvenido a Tic-Tac-Toe</h2>
+        <p style="color: aliceblue;">¡Prepárate para el desafío!</p>
+        <br>
+        <button id="play-btn">Play</button>
+        <p style="color: aliceblue;">By: KADIR RAMIREZ</p>
+        
+      </div>
+    </div>
+
+    <section id="container">
       <!--Encabezado del juego-->
       <div id="encabezado">
         <h1>TIC TAC TOE</h1>
@@ -36,7 +49,12 @@
       </div>
       <button id="restart-btn">Reiniciar</button>
     </section>
-
+    <!--Musica del juego-->
+    <br />
+    <audio controls>
+      <source src="./src/songs.mp3" type="audio/mp3" />
+      Tu navegador no soporta audio HTML5.
+    </audio>
     <script src="./main.js"></script>
   </body>
 </html>

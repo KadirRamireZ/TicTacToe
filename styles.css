@@ -1,0 +1,26 @@
+body {
+  text-align: center;
+  background-image: url(./src/konoha.jpg);
+}
+
+h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: aliceblue;
+  font-size: 250%;
+}
+
+h2 {
+  font-size: 150%;
+  margin-top: 0%;
+  color: aliceblue;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+#gif {
+  
+  margin-left: -12%;
+}
+
+hr{
+    margin-top: -5%;
+}

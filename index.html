@@ -8,17 +8,34 @@
   </head>
 
   <body>
+    <section>
+      <!--Encabezado del juego-->
+      <div id="encabezado">
+        <h1>TIC TAC TOE</h1>
+        <hr />
+        <h2>K o n o h a - V e r s i o n</h2>
 
-    <!--Encabezado del juego-->
-    <div id="encabezado">
-      <h1>TIC TAC TOE</h1>
-      <hr />
-      <h2>K o n o h a - V e r s i o n</h2>
-      <img id="gif" src="./src/12174.gif" alt="">
-    </div>
+        <img id="gift" src="./src/12174.gif" alt="" />
 
-    <!--Estructura del juego-->
-    
+        <hr />
+      </div>
+
+      <!--Estructura del juego-->
+
+      <div id="turn-indicator"></div>
+      <div id="board">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <button id="restart-btn">Reiniciar</button>
+    </section>
 
     <script src="./main.js"></script>
   </body>

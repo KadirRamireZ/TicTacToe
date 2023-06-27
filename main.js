@@ -1,41 +1,49 @@
 // Variables
-const cells = Array.from(document.querySelectorAll('.cell'));
-const turnIndicator = document.getElementById('turn-indicator');
-const restartButton = document.getElementById('restart-btn');
-const modal = document.getElementById('modal');
-const playButton = document.getElementById('play-btn');
+const cells = Array.from(document.querySelectorAll(".cell"));
+const turnIndicator = document.getElementById("turn-indicator");
+const restartButton = document.getElementById("restart-btn");
+const modal = document.getElementById("modal");
+const playButton = document.getElementById("play-btn");
 
-const playerSymbol = 'X';
-const computerSymbol = 'O';
+const playerSymbol = "X";
+const computerSymbol = "O";
 
 let currentPlayer = playerSymbol;
 let gameActive = false;
 let winner = null;
+let movesCount = 0;
 
 // Event Listeners
-cells.forEach(cell => cell.addEventListener('click', () => handleCellClick(cell)));
-restartButton.addEventListener('click', restartGame);
-playButton.addEventListener('click', startGame);
+cells.forEach((cell) =>
+  cell.addEventListener("click", () => handleCellClick(cell))
+);
+restartButton.addEventListener("click", restartGame);
+playButton.addEventListener("click", startGame);
 
-// Functions
+// Funciones
 function handleCellClick(cell) {
-  if (!gameActive || !cell.classList.contains('empty')) return;
+  if (!gameActive || !cell.classList.contains("empty")) return;
 
   cell.textContent = currentPlayer;
-  cell.classList.remove('empty');
+  cell.classList.remove("empty");
   cell.classList.add(currentPlayer);
   checkWinConditions();
   if (gameActive) {
-    currentPlayer = currentPlayer === playerSymbol ? computerSymbol : playerSymbol;
-    turnIndicator.textContent = `Turn: ${currentPlayer}`;
+    currentPlayer =
+      currentPlayer === playerSymbol ? computerSymbol : playerSymbol;
+    turnIndicator.textContent = `Turno: ${currentPlayer}`;
     if (currentPlayer === computerSymbol) {
       setTimeout(makeComputerMove, 500);
     }
   }
+  movesCount++;
+  if (movesCount === 9 && gameActive) {
+    endGame("draw");
+  }
 }
 
 function makeComputerMove() {
-  const emptyCells = cells.filter(cell => cell.classList.contains('empty'));
+  const emptyCells = cells.filter((cell) => cell.classList.contains("empty"));
   const randomIndex = Math.floor(Math.random() * emptyCells.length);
   const selectedCell = emptyCells[randomIndex];
   handleCellClick(selectedCell);
@@ -43,9 +51,14 @@ function makeComputerMove() {
 
 function checkWinConditions() {
   const winningCombinations = [
-    [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-    [0, 4, 8], [2, 4, 6] // Diagonals
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8], // filas
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8], // columnas
+    [0, 4, 8],
+    [2, 4, 6], // Diagonales
   ];
 
   for (const combination of winningCombinations) {
@@ -58,35 +71,40 @@ function checkWinConditions() {
     ) {
       gameActive = false;
       winner = currentPlayer;
-      turnIndicator.textContent = `Winner: ${winner}`;
+      endGame("win", winner);
       break;
     }
-  }
-
-  if (!gameActive && !winner) {
-    turnIndicator.textContent = 'It\'s a draw!';
   }
 }
 
 function restartGame() {
-  cells.forEach(cell => {
-    cell.textContent = '';
-    cell.classList.add('empty');
+  cells.forEach((cell) => {
+    cell.textContent = "";
+    cell.classList.add("empty");
     cell.classList.remove(playerSymbol, computerSymbol);
   });
 
   currentPlayer = playerSymbol;
   gameActive = false;
   winner = null;
-  turnIndicator.textContent = `Turn: ${currentPlayer}`;
-  modal.style.display = 'block';
+  movesCount = 0;
+  turnIndicator.textContent = `Turno: ${currentPlayer}`;
+  modal.style.display = "block";
 }
 
 function startGame() {
-  modal.style.display = 'none';
+  modal.style.display = "none";
   gameActive = true;
-  turnIndicator.textContent = `Turn: ${currentPlayer}`;
+  turnIndicator.textContent = `Turno: ${currentPlayer}`;
 }
 
-// Initial Setup
+function endGame(result, winner = "") {
+  gameActive = false;
+  if (result === "draw") {
+    turnIndicator.textContent = "Empate";
+  } else if (result === "win") {
+    turnIndicator.textContent = `Winner: ${winner}`;
+  }
+}
+
 restartGame();

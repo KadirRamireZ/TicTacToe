@@ -102,6 +102,13 @@ button {
   background-image: url(./src/backgrounddiv.jpg);
 }
 
+#turn-indicator {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
 @media (min-width: 1095px) {
   .cell {
     margin-left: 6%;

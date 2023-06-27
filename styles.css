@@ -68,17 +68,19 @@ section {
   margin-bottom: 50px;
   margin-left: 8%;
   margin-top: 10%;
+ 
 }
 
 .cell {
   width: 70%;
   height: 100px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(96, 94, 94);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 40px;
   cursor: pointer;
+  border: 3px solid rgb(255, 255, 255);
 }
 
 #turn-indicator {

@@ -5,8 +5,8 @@ const restartButton = document.getElementById("restart-btn");
 const modal = document.getElementById("modal");
 const playButton = document.getElementById("play-btn");
 
-const playerSymbol = "X";
-const computerSymbol = "O";
+const playerSymbol = "🦊";
+const computerSymbol = "🐍";
 
 let currentPlayer = playerSymbol;
 let gameActive = false;
@@ -35,7 +35,7 @@ function handleCellClick(cell) {
       currentPlayer === playerSymbol ? computerSymbol : playerSymbol;
     turnIndicator.textContent = `Turno: ${currentPlayer}`;
     if (currentPlayer === computerSymbol) {
-      setTimeout(makeComputerMove, 1000);
+      setTimeout(makeComputerMove, 1500);
     }
   }
   movesCount++;

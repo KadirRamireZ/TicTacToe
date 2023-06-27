@@ -85,6 +85,9 @@ section {
   margin-bottom: 10px;
 }
 
+
+
+
 button {
   font-size: 25px;
   margin-bottom: 10%;
@@ -104,9 +107,10 @@ button {
 
 #turn-indicator {
   font-size: 24px;
-  color: white;
+  color: rgb(255, 55, 0);
   margin-bottom: 20px;
   text-transform: uppercase;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 @media (min-width: 1095px) {

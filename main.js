@@ -21,19 +21,21 @@ restartButton.addEventListener("click", restartGame);
 playButton.addEventListener("click", startGame);
 
 // Funciones
+
+//Verifica si el juego está activo
 function handleCellClick(cell) {
   if (!gameActive || !cell.classList.contains("empty")) return;
 
   cell.textContent = currentPlayer;
   cell.classList.remove("empty");
   cell.classList.add(currentPlayer);
-  checkWinConditions();
+  checkWinConditions(); //verifica si alguna de las combinaciones ganadoras se ha completado
   if (gameActive) {
     currentPlayer =
       currentPlayer === playerSymbol ? computerSymbol : playerSymbol;
     turnIndicator.textContent = `Turno: ${currentPlayer}`;
     if (currentPlayer === computerSymbol) {
-      setTimeout(makeComputerMove, 500);
+      setTimeout(makeComputerMove, 1000);
     }
   }
   movesCount++;
@@ -42,6 +44,7 @@ function handleCellClick(cell) {
   }
 }
 
+//la computadora realice un movimiento aleatorio
 function makeComputerMove() {
   const emptyCells = cells.filter((cell) => cell.classList.contains("empty"));
   const randomIndex = Math.floor(Math.random() * emptyCells.length);
@@ -77,6 +80,7 @@ function checkWinConditions() {
   }
 }
 
+//reinicia el juego
 function restartGame() {
   cells.forEach((cell) => {
     cell.textContent = "";

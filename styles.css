@@ -3,6 +3,7 @@ body {
   background-image: url(./src/konoha.jpg);
 }
 
+/* ScoreBoard */
 .scoreboard {
   text-align: center;
   background-color: #000000;
@@ -13,6 +14,7 @@ body {
   margin-bottom: 1%;
 }
 
+/* Modal */
 .modal {
   position: fixed;
   top: 0;
@@ -52,6 +54,8 @@ body {
 .modal-content button {
   font-size: 250%;
 }
+
+/* Estructura general */
 
 h1 {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
@@ -123,6 +127,9 @@ button {
   text-transform: uppercase;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
+
+
+/* mediaQueri */
 
 @media (min-width: 1095px) {
   .cell {

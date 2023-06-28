@@ -118,8 +118,13 @@ function endGame(result, winner = "") {
   if (result === "draw") {
     turnIndicator.textContent = "¡Empate!";
   } else if (result === "win") {
-    turnIndicator.textContent = `¡Ganaste!`;
+    if (currentPlayer === playerSymbol) {
+      turnIndicator.textContent = `¡🦊 Ganó !`;
+    } else {
+      turnIndicator.textContent = `¡🐍 Ganó !`;
+    }
   }
+
   if (result === "win") {
     if (currentPlayer === playerSymbol) {
       scoreboard.jugador1++;

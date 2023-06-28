@@ -128,7 +128,6 @@ button {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-
 /* mediaQueri */
 
 @media (min-width: 1095px) {
@@ -143,7 +142,7 @@ button {
   }
 }
 
-@media (min-width: 678px) {
+@media (min-width: 300px) {
   .modal-content {
     background-color: #000000;
     border-radius: 15%;
@@ -153,6 +152,10 @@ button {
     height: auto;
     margin-left: 45%;
     margin-top: 15%;
+  }
+
+  video {
+    display: none;
   }
 }
 
@@ -166,5 +169,14 @@ button {
     height: auto;
     margin-left: 39%;
     margin-top: 30%;
+  }
+}
+
+@media (min-width: 1280px) {
+  video {
+    display: flex;
+    margin-left: 70%;
+    margin-top: -63.5%;
+    border: 8px solid #ffffff;
   }
 }

@@ -119,9 +119,6 @@ function endGame(result, winner = "") {
     turnIndicator.textContent = "¡Empate!";
   } else if (result === "win") {
     turnIndicator.textContent = `¡Ganaste!`;
-    // } else if (result !== "win") {
-
-    //   turnIndicator.textContent = "Perdiste"
   }
   if (result === "win") {
     if (currentPlayer === playerSymbol) {
@@ -134,5 +131,3 @@ function endGame(result, winner = "") {
 }
 
 restartGame();
-
-

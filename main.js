@@ -2,6 +2,8 @@
 const cells = Array.from(document.querySelectorAll(".cell"));
 const turnIndicator = document.getElementById("turn-indicator");
 const restartButton = document.getElementById("restart-btn");
+const scoreJugador1 = document.getElementById("score-jugador1");
+const scoreComputer = document.getElementById("score-computer");
 const modal = document.getElementById("modal");
 const playButton = document.getElementById("play-btn");
 
@@ -12,6 +14,10 @@ let currentPlayer = playerSymbol;
 let gameActive = false;
 let winner = null;
 let movesCount = 0;
+const scoreboard = {
+  jugador1: 0,
+  computer: 0,
+};
 
 // Event Listeners
 cells.forEach((cell) =>
@@ -21,6 +27,11 @@ restartButton.addEventListener("click", restartGame);
 playButton.addEventListener("click", startGame);
 
 // Funciones
+
+function updateScoreboard() {
+  scoreJugador1.textContent = scoreboard.jugador1;
+  scoreComputer.textContent = scoreboard.computer;
+}
 
 //Verifica si el juego está activo
 function handleCellClick(cell) {
@@ -35,7 +46,7 @@ function handleCellClick(cell) {
       currentPlayer === playerSymbol ? computerSymbol : playerSymbol;
     turnIndicator.textContent = `Turno: ${currentPlayer}`;
     if (currentPlayer === computerSymbol) {
-      setTimeout(makeComputerMove, 1500);
+      setTimeout(makeComputerMove, 500);
     }
   }
   movesCount++;
@@ -105,10 +116,23 @@ function startGame() {
 function endGame(result, winner = "") {
   gameActive = false;
   if (result === "draw") {
-    turnIndicator.textContent = "Empate";
+    turnIndicator.textContent = "¡Empate!";
   } else if (result === "win") {
-    turnIndicator.textContent = `Winner: ${winner}`;
+    turnIndicator.textContent = `¡Ganaste!`;
+    // } else if (result !== "win") {
+
+    //   turnIndicator.textContent = "Perdiste"
+  }
+  if (result === "win") {
+    if (currentPlayer === playerSymbol) {
+      scoreboard.jugador1++;
+    } else {
+      scoreboard.computer++;
+    }
+    updateScoreboard();
   }
 }
 
 restartGame();
+
+

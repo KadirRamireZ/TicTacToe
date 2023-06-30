@@ -6,6 +6,7 @@ const scoreJugador1 = document.getElementById("score-jugador1");
 const scoreComputer = document.getElementById("score-computer");
 const modal = document.getElementById("modal");
 const playButton = document.getElementById("play-btn");
+const cellSound = document.getElementById("cell-sound");
 
 const playerSymbol = "🦊";
 const computerSymbol = "🐍";

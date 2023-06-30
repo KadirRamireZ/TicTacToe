@@ -146,9 +146,8 @@ button {
   .modal-content {
     background-color: #000000;
     border-radius: 15%;
-    padding: 20px;
     text-align: center;
-    width: 12%;
+    width: 30%;
     height: auto;
     margin-left: 45%;
     margin-top: 15%;
